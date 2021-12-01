@@ -8,9 +8,14 @@ package br.com.vovolinux;
  */
 public class Main {
     public static void main(String[] args) throws Exception{
-        writeTxtFile();
-        writeCsvFile();
-        writeJsonFile();
+        try {
+            writeTxtFile();
+            writeCsvFile();
+            writeJsonFile();
+        } catch (Exception e) {
+            System.out.println("Error message: " + e.getMessage());
+            System.out.println("Error stackTrace: " + e.getStackTrace());
+        }
     }
 
     private static void writeTxtFile() throws Exception {
@@ -33,7 +38,6 @@ public class Main {
     }
 
     private static void writeJsonFile() throws Exception {
-
         FileUtil fileJson = new FileUtil("./tmp","test","json");
         fileJson.openToWrite();
         fileJson.write("[\n" +
