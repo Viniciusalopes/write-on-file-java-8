@@ -21,9 +21,9 @@ public class Main {
     private static void writeTxtFile() throws Exception {
         FileUtil fileTxt = new FileUtil("./tmp","test","txt");
         fileTxt.openToWrite();
-        fileTxt.write("My content on the plain text file");
+        fileTxt.write("TITLE OF MY TEXT\nMy content on the plain text file");
         fileTxt.close();
-        System.out.println("See your created file on: " + fileTxt.getFullPath());
+        printOutputs(fileTxt);
     }
 
     private static void writeCsvFile() throws Exception {
@@ -34,7 +34,7 @@ public class Main {
         fileCsv.write("2;vovolinux;Code developer\n");
         fileCsv.write("3;Vovo;Project tester\n");
         fileCsv.close();
-        System.out.println("See your created file on: " + fileCsv.getFullPath());
+        printOutputs(fileCsv);
     }
 
     private static void writeJsonFile() throws Exception {
@@ -51,6 +51,13 @@ public class Main {
                 "\t}\n" +
                 "]");
         fileJson.close();
-        System.out.println("See your created file on: " + fileJson.getFullPath());
+        printOutputs(fileJson);
+    }
+
+    private static void printOutputs(FileUtil file) {
+        System.out.println("File path: " + file.getFilePath());
+        System.out.println("File name: " + file.getFileName());
+        System.out.println("See your created file on: " + file.getFullPath());
+        System.out.println();
     }
 }
